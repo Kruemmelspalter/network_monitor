@@ -8,7 +8,7 @@ COPY requirements.txt .
 
 RUN ["pip", "install", "-r", "requirements.txt"]
 
-COPY conf.json .
+COPY conf.json ./conf/
 COPY uwsgi.ini .
 
 COPY src/ .

@@ -14,7 +14,7 @@ REGEX_PATH = '^\\/(?:[\\w\\?=]\\/?)*$'
 hosts = []
 CONF = {}
 
-with open('conf.json') as f:
+with open('conf/conf.json') as f:
     CONF = json.load(f)
     f.close()
 
@@ -101,7 +101,7 @@ def check_hosts():
 
 def reload_conf():
     global CONF
-    with open('conf.json') as f:
+    with open('conf/conf.json') as f:
         CONF = json.load(f)
         f.close()
     hosts.clear()
