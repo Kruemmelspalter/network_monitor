@@ -38,4 +38,5 @@ sphinxcontrib-serializinghtml==1.1.4
 tornado==6.1
 tqdm==4.54.1
 urllib3==1.26.2
+uWSGI==2.0.19.1
 Werkzeug==1.0.1

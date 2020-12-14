@@ -1,6 +1,7 @@
 import flask
 
 import network
+import threading
 
 app = flask.Flask(__name__)
 
@@ -27,5 +28,15 @@ def api_check():
     return "", 200 if all([not host.fail for host in network.hosts]) else 500
 
 
+@app.before_first_request
+def activate_job():
+    print("oof")
+    network.init_hosts()
+    print("oof")
+    thread = threading.Thread(target=network.check_routine)
+    print("oof")
+    thread.start()
+
+
 def run():
-    app.run(port=80, host="172.19.0.2")
+    app.run(port=80)

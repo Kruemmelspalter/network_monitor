@@ -110,7 +110,9 @@ def reload_conf():
 
 
 def check_routine():
+    print("routine")
     while True:
+        print("check")
         check_hosts()
         time.sleep(CONF["sleep_delay"])
 
