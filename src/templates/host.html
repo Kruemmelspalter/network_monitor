@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<h2>{{host.ip}}: {{host.hostname}}<button onclick="document.location='/reload'">Reload Config</button></h2>
+<h2>{{host.ip}}: {{host.hostname}}<button onclick="document.location='reload'">Reload Config</button></h2>
 {% for check in host.checks.keys() %}
 {% if host.checks[check] %}
 <div class="pass">
