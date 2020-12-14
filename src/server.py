@@ -5,6 +5,8 @@ import threading
 
 app = flask.Flask(__name__)
 
+import api
+
 
 @app.route('/')
 def index():
@@ -23,18 +25,10 @@ def reload():
     return flask.redirect('/')
 
 
-@app.route('/api/check')
-def api_check():
-    return "", 200 if all([not host.fail for host in network.hosts]) else 500
-
-
 @app.before_first_request
 def activate_job():
-    print("oof")
     network.init_hosts()
-    print("oof")
     thread = threading.Thread(target=network.check_routine)
-    print("oof")
     thread.start()
 
 
