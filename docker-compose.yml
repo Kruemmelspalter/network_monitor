@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  network_dashboard:
+    build: .
+    ports:
+      - 13080:80

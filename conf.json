@@ -1,0 +1,31 @@
+{
+	"hosts": {
+		"192.168.178.1": {
+			"checks": [
+				"ping",
+				"port:53",
+				"http:80:HEAD:/",
+				"port:443",
+				"port:5060"
+			]
+		},
+		"192.168.178.2": {
+			"checks": [
+				"ping",
+				"port:53",
+				"http:80:HEAD:/",
+				"http:10080:HEAD:/",
+				"http:11080:HEAD:/",
+				"http:12080:HEAD:/"
+			]
+		},
+		"192.168.178.3": {
+			"checks": [
+				"ping",
+				"port:139",
+				"port:445"
+			]
+		}
+	},
+	"sleep_delay": 10
+}

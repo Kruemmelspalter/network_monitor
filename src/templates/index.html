@@ -1,0 +1,43 @@
+<html>
+<head>
+
+    <style>
+        div {
+        margin: 10;
+        padding: 10;
+        border-radius: 20px;
+        }
+        div.pass {
+        background: green
+        }
+        div.fail {
+        background: red
+        }
+        a {
+        color: blue;
+        text-decoration: none
+        }
+
+    </style>
+
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Hosts
+    <button onclick="document.location='/reload'">Reload Config</button>
+</h1>
+{% for host in hosts %}
+<a href="/hosts?ip={{host.ip}}">
+    {% if host.fail %}
+    <div class="fail">
+        {% else %}
+        <div class="pass">
+            {% endif %}
+            {{host.ip}}:{{host.hostname}}
+        </div>
+
+</a>
+{% endfor %}
+
+</body>
+</html>

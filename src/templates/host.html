@@ -1,0 +1,29 @@
+<html>
+<head>
+    <style>
+        div {
+        margin: 10;
+        padding: 10;
+        border-radius: 20px;
+        }
+        div.pass {
+        background: green
+        }
+        div.fail {
+        background: red
+        }
+    </style>
+</head>
+<body>
+<h2>{{host.ip}}: {{host.hostname}}<button onclick="document.location='/reload'">Reload Config</button></h2>
+{% for check in host.checks.keys() %}
+{% if host.checks[check] %}
+<div class="pass">
+    {% else %}
+    <div class="fail">
+        {% endif%}
+    <h3>{{check}}</h3>
+</div>
+{% endfor %}
+</body>
+</html>
